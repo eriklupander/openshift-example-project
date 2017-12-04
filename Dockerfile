@@ -15,8 +15,8 @@ COPY liquibase /liquibase
 RUN rm -rf webapps/ROOT
 RUN rm -rf webapps/ROOT.war
 
-# Copy artifact. Do this from Jenkins?
-COPY intygstjanst-web-0-SNAPSHOT.war webapps/ROOT.war
+# ADD artifact from Jenkins
+ADD https://build-inera.nordicmedtest.se/nexus/repository/releases/se/inera/intyg/intygstjanst/intygstjanst-web/3.4.0.255/intygstjanst-web-3.4.0.255.war webapps/ROOT.war
 
 # Copy environment variable script and startup script.
 COPY setenv.sh bin/setenv.sh
